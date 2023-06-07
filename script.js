@@ -74,9 +74,10 @@ let fakeMoviesAPI = {
 }
 
 
+//  let Movies;
 
 // for (let index = 0; index < fakeMoviesAPI.length; index++) {
-//     const Movies = fakeMoviesAPI[index];
+//      Movies = fakeMoviesAPI[index];
     
 // }
 
@@ -84,4 +85,53 @@ let fakeMoviesAPI = {
 
 let firstMovie = fakeMoviesAPI.results[0]
 
-console.log(fakeMoviesAPI.results[0])
+console.log(firstMovie)
+
+
+function generateCards(movieObject)
+{
+    //create star
+    let star = document.createElement('span');
+    star.classList.add('star')
+    let starContent = document.createTextNode('⭐️');
+    star.appendChild(starContent);
+    // document.body.appendChild(star);
+
+    //create rating
+    let rating = document.createElement('span');
+    rating.classList.add('rating')
+    let ratingConent = document.createTextNode(movieObject.vote_average);
+    rating.appendChild(ratingConent);
+    // document.body.appendChild(rating);
+
+    //create average container
+    let avereageContainer = document.createElement('div')
+    avereageContainer.classList.add('average')
+    avereageContainer.appendChild(star);
+    avereageContainer.appendChild(rating);
+    document.body.appendChild(avereageContainer);
+
+    //create image
+    let image = document.createElement('img');
+    image.src = "https://image.tmdb.org/t/p/w342" + movieObject.poster_path;
+    document.body.insertBefore(image, avereageContainer);
+
+    //create title
+    let title = document.createElement('div');
+    title.classList.add('name');
+    let nameConent = document.createTextNode(movieObject.original_title)
+    //or you can do name.innerText = movieObject.original_title
+    document.body.insertBefore(nameConent, avereageContainer.nextSibling)
+
+
+    //create section
+    let movie = document.createElement('section');
+    movie.classList.add('movie')
+    movie.appendChild(image)
+    movie.appendChild(avereageContainer)
+    movie.appendChild(nameConent);
+    document.body.appendChild(movie)
+}
+
+
+generateCards(firstMovie);

@@ -1,1 +1,14 @@
 
+
+
+.movie {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 1%;
+}
+
+
+.star {
+    padding-right: 2%;
+}

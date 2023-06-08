@@ -116,8 +116,9 @@ function generateCards(movieObject)
     let title = document.createElement('div');
     title.classList.add('name');
     let nameConent = document.createTextNode(movieObject.original_title)
+    title.appendChild(nameConent);
     //or you can do name.innerText = movieObject.original_title
-    document.body.insertBefore(nameConent, avereageContainer.nextSibling)
+    document.body.insertBefore(title, avereageContainer.nextSibling)
 
 
     //create section
@@ -125,6 +126,6 @@ function generateCards(movieObject)
     movie.classList.add('movie')
     movie.appendChild(image)
     movie.appendChild(avereageContainer)
-    movie.appendChild(nameConent);
+    movie.appendChild(title);
     document.body.appendChild(movie)
 }

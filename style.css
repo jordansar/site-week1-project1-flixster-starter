@@ -22,3 +22,13 @@ body
 {
     color: white;
 }
+
+h1{
+    color: white;
+    
+}
+
+img{
+    max-height: 513px;
+    max-width: 342px;
+}

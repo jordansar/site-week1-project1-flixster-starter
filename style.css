@@ -12,3 +12,13 @@
 .star {
     padding-right: 2%;
 }
+
+body
+{
+    background-color: dimgray;
+}
+
+.name,.rating
+{
+    color: white;
+}

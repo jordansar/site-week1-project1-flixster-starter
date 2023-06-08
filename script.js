@@ -74,18 +74,14 @@ let fakeMoviesAPI = {
 }
 
 
-//  let Movies;
+let moviesLength = fakeMoviesAPI.results.length;
 
-// for (let index = 0; index < fakeMoviesAPI.length; index++) {
-//      Movies = fakeMoviesAPI[index];
+for (let index = 0; index < moviesLength; index++) {
+    // console.log(fakeMoviesAPI.results[index]);
+    let fakeThreeMovies = fakeMoviesAPI.results[index];
+    generateCards(fakeThreeMovies);
     
-// }
-
-
-
-let firstMovie = fakeMoviesAPI.results[0]
-
-console.log(firstMovie)
+}
 
 
 function generateCards(movieObject)
@@ -132,6 +128,3 @@ function generateCards(movieObject)
     movie.appendChild(nameConent);
     document.body.appendChild(movie)
 }
-
-
-generateCards(firstMovie);

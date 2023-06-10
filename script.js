@@ -2,7 +2,8 @@
 
 
 let pageNumber = 1;
-
+let searchBar = document.getElementById('search-bar')
+let movieContainer = document.getElementById('movie-container')
 
 
 function page(){
@@ -15,6 +16,40 @@ fetch(url).then((res) => res.json()).then(data => {
     })
 })
 }
+
+
+function searchMovies(){
+searchBar.addEventListener('keydown', (event) => {
+    // console.log(movieContainer);
+    console.log(event.key)
+    pageNumber = 1;
+    if (event.key === "Enter") {
+        movieContainer.innerHTML = ""
+    if (searchBar.value) {
+        const searchURL = `https://api.themoviedb.org/3/search/movie?query=${searchBar.value}&include_adult=false&language=en-US&page=${pageNumber}&api_key=94faeb78155c6669b53e08b319d39802`
+
+        fetch(searchURL).then(response => response.json()).then(data => {
+            data.results.forEach((movie) =>{
+                    generateCards(movie)
+                })
+            })
+        
+            }
+            else {
+                page();
+            }
+    }
+    
+
+        })
+    }
+        
+  
+
+
+
+
+
 
 function generateCards(movieObject)
 {
@@ -59,16 +94,34 @@ function generateCards(movieObject)
     movie.appendChild(image)
     movie.appendChild(avereageContainer)
     movie.appendChild(title);
-    document.body.appendChild(movie)
+    movieContainer.appendChild(movie)
 }
+
+
 
 
 
 window.onload = function (){
-    page()
+    page();
+    searchMovies();
 }
 
 document.getElementById('loadButton').addEventListener('click', () => {
+
     pageNumber++
-    page();
+    
+    if (searchBar.value) {
+        const searchURL = `https://api.themoviedb.org/3/search/movie?query=${searchBar.value}&include_adult=false&language=en-US&page=${pageNumber}&api_key=94faeb78155c6669b53e08b319d39802`
+
+        fetch(searchURL).then(response => response.json()).then(data => {
+            data.results.forEach((movie) =>{
+                    generateCards(movie)
+                })
+            })
+    }
+    else
+    {
+        page()
+    }
+
 })

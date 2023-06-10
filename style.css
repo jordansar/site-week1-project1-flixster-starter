@@ -1,11 +1,19 @@
 
 
 
+#movie-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .movie {
     display: inline-flex;
     flex-direction: column;
     gap: 5px;
-    padding: 1%;
+    padding: 1%; 
+
 }
 
 
@@ -18,21 +26,67 @@ body
     background-color: dimgray;
 }
 
-.name,.rating
+.name{
+    color: white;
+    max-width: 342px;
+}
+
+.rating
 {
     color: white;
 }
 
 h1{
     color: white;
+    text-align: center;
     
 }
 
 img{
-    max-height: 513px;
-    max-width: 342px;
+    width: 342px;
+    height: 513px;
+    border-radius: 5%;
 }
 
-div{
+/* div{
     max-width: 342px;
+} */
+
+
+#buttonStyle
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-div
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-bar
+{
+    margin-left: 2%;
+}
+
+#loadButton
+{
+    font-size: 30px;
+    background-color: rgb(61, 156, 215);
+    border-radius: 7px;
+    border:none;
+    
+
+}
+
+label
+{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
 }

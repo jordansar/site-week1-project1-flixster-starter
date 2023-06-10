@@ -2,8 +2,9 @@
 
 
 let pageNumber = 1;
-let searchBar = document.getElementById('search-bar')
-let movieContainer = document.getElementById('movie-container')
+let searchBar = document.getElementById('search-input')
+let movieContainer = document.getElementById('movie-grid')
+let exitButton = document.getElementById('close-search-btn')
 
 
 function page(){
@@ -36,6 +37,7 @@ searchBar.addEventListener('keydown', (event) => {
         
             }
             else {
+            
                 page();
             }
     }
@@ -43,6 +45,18 @@ searchBar.addEventListener('keydown', (event) => {
 
         })
     }
+
+
+    exitButton.addEventListener("click", (event) => {
+        pageNumber =1;
+        event.preventDefault()
+        movieContainer.innerHTML = ""
+        searchBar.value = ''
+        page();
+    })
+
+
+
         
   
 
@@ -62,7 +76,7 @@ function generateCards(movieObject)
 
     //create rating
     let rating = document.createElement('span');
-    rating.classList.add('rating')
+    rating.classList.add('movie-votes')
     let ratingConent = document.createTextNode(movieObject.vote_average);
     rating.appendChild(ratingConent);
     // document.body.appendChild(rating);
@@ -76,12 +90,13 @@ function generateCards(movieObject)
 
     //create image
     let image = document.createElement('img');
+    image.classList.add('movie-poster')
     image.src = "https://image.tmdb.org/t/p/w342" + movieObject.poster_path;
     document.body.insertBefore(image, avereageContainer);
 
     //create title
     let title = document.createElement('div');
-    title.classList.add('name');
+    title.classList.add('movie-title');
     let nameConent = document.createTextNode(movieObject.original_title)
     title.appendChild(nameConent);
     //or you can do name.innerText = movieObject.original_title
@@ -90,7 +105,7 @@ function generateCards(movieObject)
 
     //create section
     let movie = document.createElement('section');
-    movie.classList.add('movie')
+    movie.classList.add('movie-card')
     movie.appendChild(image)
     movie.appendChild(avereageContainer)
     movie.appendChild(title);
@@ -106,8 +121,9 @@ window.onload = function (){
     searchMovies();
 }
 
-document.getElementById('loadButton').addEventListener('click', () => {
+document.getElementById('load-more-movies-btn').addEventListener('click', (event) => {
 
+    event.preventDefault();
     pageNumber++
     
     if (searchBar.value) {

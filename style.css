@@ -1,14 +1,14 @@
 
 
 
-#movie-container {
+#movie-grid {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.movie {
+.movie-card {
     display: inline-flex;
     flex-direction: column;
     gap: 5px;
@@ -26,12 +26,12 @@ body
     background-color: dimgray;
 }
 
-.name{
+.movie-title{
     color: white;
     max-width: 342px;
 }
 
-.rating
+.movie-votes
 {
     color: white;
 }
@@ -69,12 +69,12 @@ img{
     align-items: center;
 }
 
-#search-bar
+#search-input
 {
     margin-left: 2%;
 }
 
-#loadButton
+#load-more-movies-btn
 {
     font-size: 30px;
     background-color: rgb(61, 156, 215);

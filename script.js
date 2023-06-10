@@ -5,6 +5,7 @@ let pageNumber = 1;
 let searchBar = document.getElementById('search-input')
 let movieContainer = document.getElementById('movie-grid')
 let exitButton = document.getElementById('close-search-btn')
+exitButton.style.visibility = "hidden"
 
 
 function page(){
@@ -25,6 +26,7 @@ searchBar.addEventListener('keydown', (event) => {
     console.log(event.key)
     pageNumber = 1;
     if (event.key === "Enter") {
+        exitButton.style.visibility = "visible"
         movieContainer.innerHTML = ""
     if (searchBar.value) {
         const searchURL = `https://api.themoviedb.org/3/search/movie?query=${searchBar.value}&include_adult=false&language=en-US&page=${pageNumber}&api_key=94faeb78155c6669b53e08b319d39802`
@@ -53,7 +55,11 @@ searchBar.addEventListener('keydown', (event) => {
         movieContainer.innerHTML = ""
         searchBar.value = ''
         page();
-    })
+        
+        exitButton.style.visibility = "hidden"
+
+    } )
+
 
 
 

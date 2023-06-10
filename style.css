@@ -48,11 +48,6 @@ img{
     border-radius: 5%;
 }
 
-/* div{
-    max-width: 342px;
-} */
-
-
 #buttonStyle
 {
     display: flex;
@@ -79,7 +74,6 @@ img{
     font-size: 30px;
     background-color: rgb(61, 156, 215);
     border-radius: 7px;
-    border:none;
     
 
 }
@@ -89,4 +83,10 @@ label
     color: white;
     font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
+}
+
+
+.movie-card:hover
+{
+    scale: 105%;
 }
